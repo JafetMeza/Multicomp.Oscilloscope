@@ -1,7 +1,8 @@
-﻿namespace Multicomp.Oscilloscope
-
-public enum Source
+﻿namespace Multicomp.Oscilloscope.Enums
 {
-    CHAN1 = 1,
-    CHAN2
+    public enum Source
+    {
+        CHAN1 = 1,
+        CHAN2
+    }
 }

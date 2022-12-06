@@ -1,11 +1,12 @@
-﻿namespace Multicomp.Oscilloscope
-
-public enum TriggerMode
+﻿namespace Multicomp.Oscilloscope.Enums
 {
-    EDGE,
-    PULSE,
-    SLOPE,
-    PATTERN,
-    DURATION,
-    ALTERNATION
+    public enum TriggerMode
+    {
+        EDGE,
+        PULSE,
+        SLOPE,
+        PATTERN,
+        DURATION,
+        ALTERNATION
+    }
 }

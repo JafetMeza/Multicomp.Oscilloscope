@@ -1,8 +1,9 @@
-﻿namespace Multicomp.Oscilloscope
-
-public enum SweepMode
+﻿namespace Multicomp.Oscilloscope.Enums
 {
-    AUTO,
-    NORMAL,
-    SINGLE
+    public enum SweepMode
+    {
+        AUTO,
+        NORMAL,
+        SINGLE
+    }
 }

@@ -1,7 +1,8 @@
-﻿namespace Multicomp.Oscilloscope
-
-public enum AcqMode
+﻿namespace Multicomp.Oscilloscope.Enums
 {
-    SAMP,
-    PEAK
+    public enum AcqMode
+    {
+        SAMP,
+        PEAK
+    }
 }

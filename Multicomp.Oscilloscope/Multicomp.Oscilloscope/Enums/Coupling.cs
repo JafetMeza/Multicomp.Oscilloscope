@@ -1,8 +1,9 @@
-﻿namespace Multicomp.Oscilloscope
-
-public enum Coupling
+﻿namespace Multicomp.Oscilloscope.Enums
 {
-    AC = 1,
-    DC,
-    GND
+    public enum Coupling
+    {
+        AC = 1,
+        DC,
+        GND
+    }
 }

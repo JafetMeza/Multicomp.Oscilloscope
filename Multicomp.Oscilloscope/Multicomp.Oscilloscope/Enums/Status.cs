@@ -1,7 +1,8 @@
-﻿namespace Multicomp.Oscilloscope
-
-public enum Status
+﻿namespace Multicomp.Oscilloscope.Enums
 {
-    OFF,
-    ON
+    public enum Status
+    {
+        OFF,
+        ON
+    }
 }

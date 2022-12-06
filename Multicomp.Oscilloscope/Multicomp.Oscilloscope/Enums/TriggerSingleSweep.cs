@@ -1,8 +1,9 @@
-﻿namespace Multicomp.Oscilloscope
-
-public enum TriggerSingleSweep
+﻿namespace Multicomp.Oscilloscope.Enums
 {
-    AUTO,
-    NORM,
-    SING
+    public enum TriggerSingleSweep
+    {
+        AUTO,
+        NORM,
+        SING
+    }
 }
