@@ -59,7 +59,6 @@ namespace Multicomp.Oscilloscope
                                 goto Read;
                             }
                             var response = Encoding.ASCII.GetString(data, 0, bytes);
-                            Disconnect();
                             return response ?? "Sin respuesta";
                         }
                     }
