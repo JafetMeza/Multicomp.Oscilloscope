@@ -1,82 +1,70 @@
-﻿using System.Net.Sockets;
+﻿using System;
+using System.IO;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Sciodesk.Zamtest.Multicomp;
-
-public class Oscilloscope : IDisposable
+namespace Sciodesk.Zamtest.Multicomp
 {
-    private TcpClient? _tcpClient;
-    private readonly string _ip;
-    private readonly int _port;
-
-    public Oscilloscope(string ip, int port)
+    public class Oscilloscope
     {
-        _ip = ip;
-        _port = port;
-        _tcpClient = new TcpClient();
-    }
+        private readonly string _ip;
+        private readonly int _port;
 
-    public void Dispose()
-    {
-        _tcpClient?.Close();
-        _tcpClient?.Dispose();
-    }
-
-    private NetworkStream Connect()
-    {
-        try
+        public Oscilloscope(string ip, int port)
         {
-            _tcpClient = new TcpClient();
-            _tcpClient?.Connect(_ip, _port);
-            return _tcpClient?.GetStream() ?? throw new Exception("No se conectó el osciloscopio");
+            _ip = ip;
+            _port = port;
         }
-        catch (Exception)
-        {
-            Dispose();
-            throw;
-        }
-    }
 
-    private void Disconnect()
-    {
-        if (_tcpClient != null)
+        public async Task WriteRawCommand(string command)
         {
-            _tcpClient.Close();
-            _tcpClient.Dispose();
+            using (var client = new TcpClient())
+            {
+                client.Connect(_ip, _port);
+                using (var stream = client.GetStream())
+                using (var writeStream = new StreamWriter(stream))
+                    writeStream.Write(Encoding.ASCII.GetBytes(command));
+            }
+            await Task.Delay(450);
         }
-    }
 
-    public async Task WriteRawCommand(string command)
-    {
-        var stream = Connect();
-        stream.Write(Encoding.ASCII.GetBytes(command));
-        Disconnect();
-        await Task.Delay(450);
-    }
-
-    public async Task<string> GetDataRawCommand(string command)
-    {
-        int counter = 0;                                                        
-        var stream = Connect();
-        stream.Write(Encoding.ASCII.GetBytes(command));
-        Read:
-        var data = new Byte[256];
-        stream.ReadTimeout = 5;
-        Int32 bytes;
-        if (counter >= 3) throw new Exception("Error de lectura");
-        try
+        public async Task<string> GetDataRawCommand(string command)
         {
-            counter++;
-            bytes = stream.Read(data, 0, data.Length);
+            int counter = 0;
+            using (var client = new TcpClient())
+            {
+                client.Connect(_ip, _port);
+                using (var stream = client.GetStream())
+                {
+                    using (var writeStream = new StreamWriter(stream))
+                    {
+                        using (var readStream = new StreamReader(stream))
+                        {
+                            writeStream.Write(Encoding.ASCII.GetBytes(command));
+                        Read:
+                            var data = new byte[256];
+                            stream.ReadTimeout = 5;
+                            int bytes;
+                            if (counter >= 3) throw new Exception("Error de lectura");
+                            try
+                            {
+                                counter++;
+                                bytes = stream.Read(data, 0, data.Length);
+                            }
+                            catch (Exception)
+                            {
+                                await Task.Delay(400);
+                                writeStream.Write(Encoding.ASCII.GetBytes("1"));
+                                goto Read;
+                            }
+                            var response = Encoding.ASCII.GetString(data, 0, bytes);
+                            Disconnect();
+                            return response ?? "Sin respuesta";
+                        }
+                    }
+                }
+            }
         }
-        catch (Exception)
-        {
-            await Task.Delay(400);
-            stream.Write(Encoding.ASCII.GetBytes("1"));
-            goto Read;
-        }
-        var response = Encoding.ASCII.GetString(data, 0, bytes);
-        Disconnect();
-        return response ?? "Sin respuesta";
     }
 }
