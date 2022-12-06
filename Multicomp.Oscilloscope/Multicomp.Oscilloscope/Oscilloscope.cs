@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sciodesk.Zamtest.Multicomp
+namespace Multicomp.Oscilloscope
 {
     public class Oscilloscope
     {

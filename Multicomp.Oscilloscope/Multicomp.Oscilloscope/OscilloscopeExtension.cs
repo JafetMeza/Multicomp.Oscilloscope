@@ -1,7 +1,8 @@
 ﻿
 using Multicomp.Oscilloscope.Enums;
+using System.Threading.Tasks;
 
-namespace Sciodesk.Zamtest.Multicomp
+namespace Multicomp.Oscilloscope
 {
     public static class OscilloscopeExtension
     {
