@@ -46,7 +46,7 @@ public class Oscilloscope
             repeat = false;
             Array.Clear(data, 0, data.Length);
             stream.ReadTimeout = 5;
-            if (counter >= 3) throw new Exception("Error de lectura");
+            if (counter >= 3) throw new Exception("Reading error");
             try
             {
                 counter++;
@@ -62,7 +62,7 @@ public class Oscilloscope
 
         var response = Encoding.ASCII.GetString(data, 0, bytes);
         Disconnect();
-        return string.IsNullOrEmpty(response) ? "Sin respuesta" : response;
+        return string.IsNullOrEmpty(response) ? "No response" : response;
     }
 
     public void Disconnect()
