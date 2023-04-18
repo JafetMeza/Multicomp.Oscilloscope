@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9C30C009-7537-4804-8FC2-D8BE2EAD5742}</ProjectGuid>
+    <ProjectGuid>{A81EB068-725E-4539-8FF9-0DBD2CB75B6E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Multicomp.Oscilloscope.Test.Framework</RootNamespace>
@@ -54,12 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Multicomp.Oscilloscope\Multicomp.Oscilloscope.csproj">
-      <Project>{a89bcc72-e87a-43b9-b807-564c0627c4c6}</Project>
-      <Name>Multicomp.Oscilloscope</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
