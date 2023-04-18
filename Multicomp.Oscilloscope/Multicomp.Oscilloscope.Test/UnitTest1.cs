@@ -1,4 +1,6 @@
+using System.Threading.Tasks;
 using Multicomp.Oscilloscope.Enums;
+using Xunit;
 
 namespace Multicomp.Oscilloscope.Test;
 

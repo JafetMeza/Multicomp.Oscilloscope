@@ -45,7 +45,7 @@ namespace Multicomp.Oscilloscope
 
         #region MEASUREMENT
         public static async Task SetMeasureDisplay(this Oscilloscope osc, Status status) => await osc.WriteRawCommand($":MEASU:DISPLAY {status}");
-        public static async Task<string> MeasureVPP(this Oscilloscope osc, Source channel) => await osc.GetDataRawCommand($":MEASU:CH{(int)channel}:PKPK?");
+        public static async Task<string> MeasureVpp(this Oscilloscope osc, Source channel) => await osc.GetDataRawCommand($":MEASU:CH{(int)channel}:PKPK?");
         public static async Task<string> MeasureVmax(this Oscilloscope osc, Source channel) => await osc.GetDataRawCommand($":MEASU:CH{(int)channel}:MAX?");
         public static async Task<string> MeasureVmin(this Oscilloscope osc, Source channel) => await osc.GetDataRawCommand($":MEASU:CH{(int)channel}:MIN?");
         #endregion

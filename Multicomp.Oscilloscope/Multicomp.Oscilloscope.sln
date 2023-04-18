@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multicomp.Oscilloscope", "Multicomp.Oscilloscope\Multicomp.Oscilloscope.csproj", "{A89BCC72-E87A-43B9-B807-564C0627C4C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multicomp.Oscilloscope", "Multicomp.Oscilloscope\Multicomp.Oscilloscope.csproj", "{A89BCC72-E87A-43B9-B807-564C0627C4C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multicomp.Oscilloscope.Test", "Multicomp.Oscilloscope.Test\Multicomp.Oscilloscope.Test.csproj", "{DC7EFD89-4AFF-444F-96CB-9660DB5DD417}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multicomp.Oscilloscope.Test.Framework", "Multicomp.Oscilloscope.Test.Framework\Multicomp.Oscilloscope.Test.Framework.csproj", "{9C30C009-7537-4804-8FC2-D8BE2EAD5742}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multicomp.Oscilloscope.Test", "Multicomp.Oscilloscope.Test\Multicomp.Oscilloscope.Test.csproj", "{DC7EFD89-4AFF-444F-96CB-9660DB5DD417}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{DC7EFD89-4AFF-444F-96CB-9660DB5DD417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC7EFD89-4AFF-444F-96CB-9660DB5DD417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC7EFD89-4AFF-444F-96CB-9660DB5DD417}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C30C009-7537-4804-8FC2-D8BE2EAD5742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C30C009-7537-4804-8FC2-D8BE2EAD5742}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C30C009-7537-4804-8FC2-D8BE2EAD5742}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C30C009-7537-4804-8FC2-D8BE2EAD5742}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
